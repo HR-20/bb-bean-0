@@ -1,25 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Home from './components/pages/Home';
+import Navbar from './components/layout/Navbar';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Beans from './components/pages/Beans';
+import Catalog from './components/pages/Catalog';
+import About from './components/pages/About';
+import Search from './components/layout/Search';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Once upon a time, someone planted a seed in a hope that it will sprout a day to become a big tree. <code>- Bajaj</code>
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Navbar />
+        <div className="container">
+          <Route path="/" exact={true} component={Home} />
+          <Route path="/Beans" exact={true} component={Beans} />
+          <Route path="/Community" exact={true} component={Catalog} />
+          <Route path="/About" exact={true} component={About} />
+          <Route path="/Search" exact={true} component={Search} />
+        </div>
+      </div>
+    </Router>
   );
 }
 
